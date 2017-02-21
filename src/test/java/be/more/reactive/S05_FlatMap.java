@@ -19,14 +19,4 @@ public class S05_FlatMap extends BaseTest {
                 .subscribe(big -> log.debug(big.toString()));
     }
 
-    @Test
-    public void flatMapAsync() throws Exception {
-        final Observable<Long> smallNumbers = getSmallNumbersEmittedAsync();  //1,2,3,4
-
-        smallNumbers
-                .flatMap(small -> Observable.just(small * 100, small * -100))
-                .toBlocking()    //blocks until all numbers are emitted
-                .subscribe(big -> log.debug(big.toString()));
-    }
-
 }

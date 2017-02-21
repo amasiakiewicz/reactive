@@ -17,9 +17,10 @@ public class S04_Blocking extends BaseTest {
 		final Observable<Long> smallNumbers = getSmallNumbersEmittedAsync();  //1,2,3,4
 
 		smallNumbers
-				.subscribe(s -> log.debug(s.toString()));
+				.subscribe(s -> log.debug(s.toString()));   //non-blocking
 
 		TimeUnit.SECONDS.sleep(2);
+		log.debug("Finished");
 	}
 
 	@Test

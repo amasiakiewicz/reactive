@@ -13,18 +13,6 @@ public class S02_CompletableFuture extends BaseTest {
     private static final Logger log = LoggerFactory.getLogger(S02_CompletableFuture.class);
 
     @Test
-    public void supplyAsyncCommonPool() throws Exception {
-        final CompletableFuture<String> futureResult = CompletableFuture.supplyAsync(
-                () -> db.apply(query)
-        );
-
-        futureResult.thenAccept(result -> log.debug("Query result: '{}'", result));       //non-blocking
-
-        TimeUnit.SECONDS.sleep(4);
-        log.debug("Finishing");
-    }
-
-    @Test
     public void supplyAsyncWithCustomPool() throws Exception {
         final CompletableFuture<String> futureResult = CompletableFuture.supplyAsync(
                 () -> db.apply(query),
