@@ -35,7 +35,7 @@ public class BaseTest {
 	public TestName testName = new TestName();
 
 	private ThreadFactory threadFactory() {
-		return new ThreadFactoryBuilder().setNameFormat("CircleK-pool-%d").build();
+		return new ThreadFactoryBuilder().setNameFormat("reactive-pool-%d").build();
 	}
 
 	@Before

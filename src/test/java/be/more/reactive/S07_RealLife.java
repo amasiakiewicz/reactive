@@ -49,24 +49,16 @@ public class S07_RealLife extends BaseTest {
                 }).subscribeOn(scheduler)
         );
 
-        final List<String> results = new ArrayList<>();
         resultObservable
+                .doOnNext(result -> log.debug("Got result {}", result))
+                .doOnError(t -> {throw new RuntimeException(t);})
+                .toList()
                 .toBlocking()
-                .subscribe(
-                        result -> {
-                            log.debug("Got result {}", result);
-                            results.add(result);
-                        },
-                        t -> {
-                            throw new RuntimeException(t);
-                        },
-                        () -> {
-                            log.debug("Got all results, sorting them");
-                            results.sort(naturalOrder());
-                        }
-                );
-
-        log.debug("Results are {}", results);
+                .subscribe(results -> {
+                    log.debug("Got all results, sorting them");
+                    results.sort(naturalOrder());
+                    log.debug("Results are {}", results);
+                });
     }
 
 }

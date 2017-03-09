@@ -22,7 +22,7 @@ public class S01_ExecutorService extends BaseTest {
 	public void executorService() throws Exception {
 		final Callable<String> task = () -> db.apply(query);
 		final Future<String> resultInFuture = executorService.submit(task);
-
+		//...
 		final String result = resultInFuture.get();   //still blocking
 		log.debug("Query result: '{}'", result);
 	}

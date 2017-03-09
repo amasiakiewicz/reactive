@@ -6,6 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rx.Observable;
 
+import java.util.List;
+
 public class S06_Subscriber extends BaseTest {
 
     private static final Logger log = LoggerFactory.getLogger(S06_Subscriber.class);
@@ -17,13 +19,18 @@ public class S06_Subscriber extends BaseTest {
     }
 
     @Test
-    public void subscriberRich() {
+    public void fluentSubscriber() {
         Observable.just(1, 2, 3, 4)
-                .subscribe(
-                        (Integer i) -> log.debug(i.toString()),
-                        (Throwable t) -> log.error("Ups", t),
-                        () -> log.debug("Stream has completed")
-                );
+                .doOnNext(result -> log.debug("Got result {}", result))
+                .subscribe();
     }
 
+    @Test
+    public void toList() {
+        Observable.just(1, 2, 3, 4)
+                .doOnNext((Integer result) -> log.debug("Got result {}", result))
+                .toList()
+                .subscribe((List<Integer> results) -> log.debug("Results are {}", results));
+
+    }
 }
