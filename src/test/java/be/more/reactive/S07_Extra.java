@@ -8,9 +8,9 @@ import rx.Observable;
 
 import java.util.concurrent.TimeUnit;
 
-public class S08_Extra extends BaseTest {
+public class S07_Extra extends BaseTest {
 
-    private static final Logger log = LoggerFactory.getLogger(S08_Extra.class);
+    private static final Logger log = LoggerFactory.getLogger(S07_Extra.class);
 
     @Test
     public void interval() throws Exception {

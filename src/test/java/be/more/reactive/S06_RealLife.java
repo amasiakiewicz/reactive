@@ -12,9 +12,9 @@ import java.util.List;
 
 import static java.util.Comparator.naturalOrder;
 
-public class S07_RealLife extends BaseTest {
+public class S06_RealLife extends BaseTest {
 
-    private static final Logger log = LoggerFactory.getLogger(S07_RealLife.class);
+    private static final Logger log = LoggerFactory.getLogger(S06_RealLife.class);
 
     @Test
     public void findByQueryTraditional() {

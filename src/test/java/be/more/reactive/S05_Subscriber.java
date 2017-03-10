@@ -8,9 +8,9 @@ import rx.Observable;
 
 import java.util.List;
 
-public class S06_Subscriber extends BaseTest {
+public class S05_Subscriber extends BaseTest {
 
-    private static final Logger log = LoggerFactory.getLogger(S06_Subscriber.class);
+    private static final Logger log = LoggerFactory.getLogger(S05_Subscriber.class);
 
     @Test
     public void subscriber() {
