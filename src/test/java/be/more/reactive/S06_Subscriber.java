@@ -15,7 +15,7 @@ public class S06_Subscriber extends BaseTest {
     @Test
     public void subscriber() {
         Observable.just(1, 2, 3, 4)
-                .subscribe(i -> log.debug(i.toString()));
+                .subscribe(result -> log.debug("Got result {}", result));
     }
 
     @Test
@@ -31,6 +31,6 @@ public class S06_Subscriber extends BaseTest {
                 .doOnNext((Integer result) -> log.debug("Got result {}", result))
                 .toList()
                 .subscribe((List<Integer> results) -> log.debug("Results are {}", results));
-
     }
+
 }
