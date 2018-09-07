@@ -49,6 +49,8 @@ public class S06_RealLife extends BaseTest {
                 }).subscribeOn(scheduler)
         );
 
+        
+        
         resultObservable
                 .doOnNext(result -> log.debug("Got result {}", result))
                 .doOnError(t -> {throw new RuntimeException(t);})
